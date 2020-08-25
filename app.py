@@ -1,4 +1,5 @@
 from flask import Flask , request
+from flask_cors import CORS
 import ktrain
 import snowballstemmer
 import re
@@ -8,6 +9,7 @@ import pandas as pd
 
 ar_light_stem = snowballstemmer.stemmer('arabic')
 app = Flask(__name__)
+CORS(app)
 predictor = ktrain.load_predictor('predictor')
 
 
